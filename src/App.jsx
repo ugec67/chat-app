@@ -96,13 +96,13 @@ const initializeFirebaseAndGetInstances = async () => {
         // These variables are typically loaded from a .env file in your project root
         // and prefixed with REACT_APP_ (for Create React App) or VITE_ (for Vite)
         const firebaseConfig = {
-            apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-            authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-            projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-            storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-            messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-            appId: process.env.REACT_APP_FIREBASE_APP_ID,
-            measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID // Optional
+            apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+            authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+            projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+            storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+            messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+            appId: import.meta.env.VITE_FIREBASE_APP_ID,
+            measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID, // Optional
         };
 
         // Validate if essential config values are present
@@ -133,7 +133,7 @@ const initializeFirebaseAndGetInstances = async () => {
 
 const getAppId = () => {
     // Get the projectId from environment variables to use as the appId
-    return process.env.REACT_APP_FIREBASE_PROJECT_ID || 'default-app-id-for-local';
+    return import.meta.env.VITE_FIREBASE_PROJECT_ID || 'default-app-id-for-local';
 };
 
 
@@ -538,3 +538,4 @@ const App = () => {
 };
 
 export default App;
+                
